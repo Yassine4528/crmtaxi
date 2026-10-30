@@ -1,0 +1,28 @@
+# --- Données privées : ne JAMAIS versionner (mineurs, adresses, tarifs, codes d'accès) ---
+# L'ancienne application contient ces données en dur dans son code source.
+/agenda.html
+agenda-taxi*.json
+*sauvegarde*.json
+*backup*.json
+private/
+.data/
+*.sql.gz
+*.dump
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Dépendances et artefacts de build
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Système et éditeurs
+.DS_Store
+.idea/
+.vscode/
+*.log
+.claude/

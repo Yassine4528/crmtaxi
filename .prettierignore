@@ -1,0 +1,9 @@
+agenda.html
+agenda-taxi*.json
+*sauvegarde*.json
+dist/
+node_modules/
+apps/api/drizzle/
+package-lock.json
+.data/
+.claude/

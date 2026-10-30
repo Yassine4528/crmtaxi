@@ -1,0 +1,38 @@
+{
+  "name": "taxi-crm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Planning, circuits réguliers et facturation pour une société de taxi.",
+  "type": "module",
+  "engines": {
+    "node": ">=24.11"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @taxi-crm/api & npm run dev --workspace @taxi-crm/web & wait",
+    "build": "npm run build --workspace @taxi-crm/web",
+    "start": "npm run start --workspace @taxi-crm/api",
+    "db:generate": "npm run db:generate --workspace @taxi-crm/api",
+    "db:seed:demo": "npm run db:seed:demo --workspace @taxi-crm/api",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc -p packages/domain --noEmit && tsc -p apps/api --noEmit && tsc -p apps/web --noEmit",
+    "test": "vitest run",
+    "check:private": "node scripts/check-private-files.mjs",
+    "check": "npm run check:private && npm run lint && npm run format:check && npm run typecheck && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.2",
+    "eslint": "^10.14.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "prettier": "^3.9.10",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.0.5"
+  }
+}
